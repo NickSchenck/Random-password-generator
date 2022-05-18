@@ -1,1 +1,3 @@
-# Password Generator Starter Code
+This repo will contain the code needed for a working random password generator. It will have a min length of 8 characters and a max length of 20 characters, aswell as prompt
+the user to select which characters their password will be generated from. The user will be required to select at least one character-type in order to successfully generate
+their password, and will be able to select from lowercase, uppercase, numeric, and special characters.
