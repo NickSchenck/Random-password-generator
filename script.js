@@ -3,7 +3,8 @@ var lowerValues = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","
 var upperValues = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"]
 var numericValues = ["1","2","3","4","5","6","7","8","9","0"]
 var specialValues = ["!","#","$","%","&","'","(",")","*","+",",","-",".","/",":",";","<","=",">","?","@","[","]","^","_","`","{","|","}","~"]
-var defaultLength = (8, 20);
+var defaultLength = Math.floor(Math.random() * 16) + 6;
+
 
 var password = ""
 var allValues = lowerValues.concat(upperValues).concat(numericValues).concat(specialValues);
@@ -58,7 +59,7 @@ function writePassword() {
   var passwordText = document.querySelector("#password");
 
   passwordText.value = password;
-  //passwordText.value = password.length;
+  
   
 }
 
