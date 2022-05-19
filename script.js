@@ -3,12 +3,17 @@ var lowerValues = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","
 var upperValues = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"]
 var numericValues = ["1","2","3","4","5","6","7","8","9","0"]
 var specialValues = ["!","#","$","%","&","'","(",")","*","+",",","-",".","/",":",";","<","=",">","?","@","[","]","^","_","`","{","|","}","~"]
+var defaultLength = (8, 20);
+
 var password = ""
+var allValues = lowerValues.concat(upperValues).concat(numericValues).concat(specialValues);
+
+
 var randomLower = lowerValues[~~(Math.random() * lowerValues.length)];
 var randomUpper = upperValues[~~(Math.random() * upperValues.length)];
 var randomNumeric = numericValues[~~(Math.random() * numericValues.length)];
 var randomSpecial = specialValues[~~(Math.random() * specialValues.length)];
-  console.log(randomLower);
+
 
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
@@ -19,10 +24,9 @@ function writePassword() {
   let lowerClicked = window.confirm("Would you like your password to contain lowercase characters?")
   console.log("randomLower=" + randomLower);
   if(lowerClicked === true){
-    //var range = new Range(0, 25);
     password += randomLower;
   }
-  let upperClicked = window.confirm("Would you like your password to contain uppercase characters?")
+  let upperClicked = window.confirm("Would you like your password to contains uppercase characters?")
   console.log("randomUpper=" + randomUpper);
   if(upperClicked === true){
     password += randomUpper;
@@ -37,14 +41,24 @@ function writePassword() {
   if(specialClicked === true){
     password += randomSpecial;
   }
+  var difference = defaultLength - password.length;
+  
+  
+  for (var i = 0; i < difference; i++) {
+    var randomAll = allValues[~~(Math.random() * allValues.length)];
+    console.log(" allValues.length=" +  allValues.length);
+    console.log("randomAll=" + randomAll);
+    password += randomAll;
+  }
   if(password === "" || password === null){
     window.alert("You must select at least one character type!");
     return writePassword();
   }
-  //var password = generatePassword();
+  
   var passwordText = document.querySelector("#password");
 
   passwordText.value = password;
+  //passwordText.value = password.length;
   
 }
 
