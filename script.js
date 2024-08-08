@@ -55,7 +55,7 @@ function randomizePassword(){
         let randomAll = allValues[~~(Math.random() * allValues.length)];
 
         if(randomAll === undefined){
-          window.alert(`Please reload and select at least one character-type to include in your password.`);
+          window.alert(`Please select at least one character-type to include in your password.`);
           break;
         }else{
           password += randomAll;
@@ -90,6 +90,7 @@ function clearPassword(){
 //generateBtn variable to activate upon a `click` event.
 let generateBtn = document.querySelector(`#generate`);
 generateBtn.addEventListener(`click`, getValues);
+
 //clearBtn variable for selecting an element with an Id of #clear, and an event listener using the clearBtn
 //variable to activate upon a `click` event.
 let clearBtn = document.querySelector(`#clear`);
